@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GWEN Consulting — Global Wellness Education Network</title>
+<meta name="description" content="GWEN Consulting is a UK-headquartered global wellness consultancy bridging African human capital intelligence with international corporate and governmental strategy.">
+<meta property="og:title" content="GWEN Consulting — Global Wellness Strategy">
+<meta property="og:description" content="Bridging African human capital with global wellness strategy. UK-based. Africa-rooted. World-class.">
+<meta property="og:url" content="https://gwenconsulting.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --night: #0a0f0d;
+  --forest: #0f2419;
+  --forest-mid: #1a3a28;
+  --forest-light: #2a5c3f;
+  --gold: #c9a84c;
+  --gold-light: #e8c96a;
+  --gold-pale: #f5e9c4;
+  --ivory: #f8f5ee;
+  --white: #ffffff;
+  --mist: rgba(248,245,238,0.07);
+  --mist2: rgba(248,245,238,0.12);
+  --text-dim: rgba(248,245,238,0.55);
+  --text-mid: rgba(248,245,238,0.75);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--night);
+  color: var(--ivory);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ── NOISE TEXTURE ── */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:999; opacity:.5;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:22px 60px;
+  display:flex; justify-content:space-between; align-items:center;
+  transition: background .4s, padding .4s;
+}
+nav.scrolled {
+  background: rgba(10,15,13,0.96);
+  backdrop-filter: blur(12px);
+  padding:16px 60px;
+  border-bottom:1px solid rgba(201,168,76,0.15);
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-weight:600; letter-spacing:4px;
+  color:var(--ivory); text-decoration:none;
+}
+.nav-logo span { color:var(--gold); }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a {
+  font-size:11px; font-weight:400; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--text-mid);
+  text-decoration:none; transition:color .2s;
+}
+.nav-links a:hover { color:var(--gold); }
+.nav-cta {
+  font-size:11px; font-weight:500; letter-spacing:2px;
+  text-transform:uppercase; color:var(--night);
+  background:var(--gold); padding:10px 24px;
+  text-decoration:none; transition:background .2s;
+}
+.nav-cta:hover { background:var(--gold-light); }
+
+/* ── HERO ── */
+#hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:120px 60px 80px;
+  position:relative; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(26,58,40,0.6) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%),
+              linear-gradient(160deg, #0a0f0d 0%, #0f1a14 50%, #0a0f0d 100%);
+}
+.hero-grid {
+  position:absolute; inset:0; opacity:.04;
+  background-image: linear-gradient(rgba(248,245,238,.5) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(248,245,238,.5) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-content { position:relative; z-index:1; max-width:900px; }
+.hero-eyebrow {
+  font-size:10px; font-weight:500; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:32px; display:flex; align-items:center; gap:16px;
+}
+.hero-eyebrow::before {
+  content:''; width:40px; height:1px; background:var(--gold); opacity:.6;
+}
+.hero-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,7vw,96px);
+  font-weight:300; line-height:1.05;
+  margin-bottom:32px;
+}
+.hero-title em {
+  font-style:italic; color:var(--gold);
+}
+.hero-body {
+  font-size:16px; font-weight:300; line-height:1.85;
+  color:var(--text-mid); max-width:560px; margin-bottom:52px;
+}
+.hero-actions { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.btn-primary {
+  font-size:11px; font-weight:500; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--night);
+  background:var(--gold); padding:16px 36px;
+  text-decoration:none; transition:all .2s; border:none; cursor:pointer;
+}
+.btn-primary:hover { background:var(--gold-light); transform:translateY(-1px); }
+.btn-ghost {
+  font-size:11px; font-weight:400; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--gold);
+  padding:16px 36px; border:1px solid rgba(201,168,76,0.4);
+  text-decoration:none; transition:all .2s;
+}
+.btn-ghost:hover { border-color:var(--gold); background:rgba(201,168,76,0.06); }
+.hero-stats {
+  position:absolute; bottom:60px; right:60px;
+  display:flex; gap:48px; z-index:1;
+}
+.hero-stat-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:62px; font-weight:600; color:var(--gold-light); line-height:1;
+  margin-bottom:8px; text-shadow: 0 0 40px rgba(232,201,106,0.3);
+}
+.hero-stat-label {
+  font-size:10px; font-weight:400; letter-spacing:2.5px;
+  text-transform:uppercase; color:rgba(248,245,238,0.75);
+}
+
+/* ── SECTION BASE ── */
+section { padding:120px 60px; }
+.section-eyebrow {
+  font-size:9.5px; font-weight:500; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:20px; display:flex; align-items:center; gap:14px;
+}
+.section-eyebrow::after {
+  content:''; width:32px; height:1px; background:var(--gold); opacity:.5;
+}
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,4vw,56px); font-weight:300; line-height:1.15;
+  margin-bottom:24px;
+}
+.section-title em { font-style:italic; color:var(--gold); }
+.section-body {
+  font-size:15px; font-weight:300; line-height:1.9;
+  color:var(--text-mid); max-width:600px;
+}
+
+/* ── ABOUT ── */
+#about { background:var(--forest); }
+.about-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+}
+.about-visual {
+  position:relative; height:500px;
+}
+.about-card {
+  position:absolute; padding:32px;
+  border:1px solid rgba(201,168,76,0.2);
+  background:rgba(10,15,13,0.6); backdrop-filter:blur(8px);
+}
+.about-card-main {
+  inset:0 60px 60px 0;
+  background: linear-gradient(135deg, rgba(26,58,40,0.9) 0%, rgba(10,15,13,0.9) 100%);
+}
+.about-card-float {
+  bottom:0; right:0; width:220px;
+  background:var(--gold); color:var(--night);
+  border:none;
+}
+.about-card-float .num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:60px; font-weight:600; line-height:1;
+  text-shadow: 0 0 20px rgba(10,15,13,0.3);
+}
+.about-card-float .lbl {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  font-weight:500; margin-top:8px; opacity:.8;
+}
+.about-card-main .quote {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-style:italic; font-weight:300;
+  line-height:1.5; color:var(--ivory); margin-bottom:24px;
+}
+.about-card-main .attr {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); font-weight:500;
+}
+.about-text .tags {
+  display:flex; flex-wrap:wrap; gap:10px; margin-top:36px;
+}
+.tag {
+  font-size:10px; font-weight:400; letter-spacing:2px;
+  text-transform:uppercase; color:var(--gold);
+  border:1px solid rgba(201,168,76,0.3);
+  padding:8px 16px;
+}
+
+/* ── SERVICES ── */
+#services { background:var(--night); }
+.services-intro {
+  display:grid; grid-template-columns:1fr 1fr; gap:80px;
+  margin-bottom:80px; align-items:end;
+}
+.services-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+  background:rgba(248,245,238,0.05);
+}
+.service-card {
+  background:var(--night); padding:48px 36px;
+  transition:background .3s; position:relative; overflow:hidden;
+}
+.service-card::before {
+  content:''; position:absolute; top:0; left:0;
+  width:100%; height:2px; background:var(--gold);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .4s ease;
+}
+.service-card:hover { background:var(--forest); }
+.service-card:hover::before { transform:scaleX(1); }
+.service-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:64px; font-weight:600;
+  color:rgba(201,168,76,0.35); line-height:1;
+  margin-bottom:20px; letter-spacing:-2px;
+}
+.service-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:400; line-height:1.2;
+  margin-bottom:16px; color:var(--ivory);
+}
+.service-body {
+  font-size:13px; font-weight:300; line-height:1.8;
+  color:var(--text-dim); margin-bottom:28px;
+}
+.service-price {
+  font-size:10px; font-weight:500; letter-spacing:2px;
+  text-transform:uppercase; color:var(--gold);
+  padding-top:20px; border-top:1px solid rgba(201,168,76,0.15);
+}
+
+/* ── ECOSYSTEM ── */
+#ecosystem {
+  background:var(--forest);
+  position:relative; overflow:hidden;
+}
+#ecosystem::before {
+  content:'';
+  position:absolute; top:-200px; right:-200px;
+  width:600px; height:600px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+}
+.ecosystem-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  margin-top:64px;
+}
+.eco-card {
+  padding:28px; border:1px solid rgba(248,245,238,0.08);
+  background:rgba(10,15,13,0.4);
+  transition:border-color .3s, background .3s;
+  text-decoration:none; color:inherit; display:block;
+}
+.eco-card:hover {
+  border-color:rgba(201,168,76,0.4);
+  background:rgba(10,15,13,0.7);
+}
+.eco-status {
+  display:inline-block;
+  font-size:8px; font-weight:600; letter-spacing:2px;
+  text-transform:uppercase; padding:4px 10px;
+  margin-bottom:16px;
+}
+.eco-status.live { background:rgba(52,168,83,0.2); color:#4caf77; }
+.eco-status.active { background:rgba(201,168,76,0.2); color:var(--gold); }
+.eco-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px; font-weight:500; color:var(--ivory);
+  margin-bottom:6px;
+}
+.eco-type {
+  font-size:9px; font-weight:400; letter-spacing:2px;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:12px;
+}
+.eco-desc {
+  font-size:12px; font-weight:300; line-height:1.7;
+  color:var(--text-dim);
+}
+
+/* ── AFRICA ── */
+#africa { background:var(--night); }
+.africa-layout {
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
+  margin-top:64px;
+}
+.africa-stats {
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+  background:rgba(248,245,238,0.05);
+}
+.africa-stat {
+  background:var(--night); padding:32px 28px;
+}
+.africa-stat-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:58px; font-weight:600; color:var(--gold-light);
+  line-height:1; margin-bottom:10px;
+  text-shadow: 0 0 30px rgba(232,201,106,0.25);
+}
+.africa-stat-label {
+  font-size:10px; font-weight:400; letter-spacing:2px;
+  text-transform:uppercase; color:rgba(248,245,238,0.65); line-height:1.6;
+}
+.africa-points { display:flex; flex-direction:column; gap:0; }
+.africa-point {
+  padding:24px 0; border-bottom:1px solid rgba(248,245,238,0.07);
+  display:flex; gap:20px; align-items:flex-start;
+}
+.africa-point:first-child { padding-top:0; }
+.africa-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--gold); flex-shrink:0; margin-top:7px;
+}
+.africa-point-title {
+  font-size:13px; font-weight:500; letter-spacing:1px;
+  color:var(--ivory); margin-bottom:6px; text-transform:uppercase;
+}
+.africa-point-body {
+  font-size:13px; font-weight:300; line-height:1.75;
+  color:var(--text-dim);
+}
+
+/* ── ALLIANCE ── */
+#alliance {
+  background:var(--forest-mid);
+  text-align:center; padding:100px 60px;
+}
+.alliance-logos {
+  display:flex; justify-content:center; align-items:center;
+  gap:40px; margin:52px 0;
+}
+.alliance-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px; font-weight:300; letter-spacing:6px;
+  color:var(--ivory);
+}
+.alliance-name.gold { color:var(--gold); }
+.alliance-x {
+  font-size:24px; color:rgba(201,168,76,0.4); font-weight:200;
+}
+.alliance-body {
+  font-size:15px; font-weight:300; line-height:1.9;
+  color:var(--text-mid); max-width:640px; margin:0 auto 48px;
+}
+.alliance-people {
+  display:flex; justify-content:center; gap:60px; margin-top:60px;
+}
+.person-card {
+  text-align:center;
+}
+.person-initial {
+  width:64px; height:64px; border-radius:50%;
+  border:1px solid rgba(201,168,76,0.3);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 16px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:300; color:var(--gold);
+}
+.person-name {
+  font-size:13px; font-weight:500; letter-spacing:1px;
+  color:var(--ivory); margin-bottom:4px; text-transform:uppercase;
+}
+.person-role {
+  font-size:10px; font-weight:300; letter-spacing:1.5px;
+  color:var(--text-dim); text-transform:uppercase;
+}
+
+/* ── CONTACT ── */
+#contact { background:var(--night); }
+.contact-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:80px;
+  margin-top:64px;
+}
+.contact-form { display:flex; flex-direction:column; gap:16px; }
+.form-group { display:flex; flex-direction:column; gap:8px; }
+.form-label {
+  font-size:9px; font-weight:500; letter-spacing:3px;
+  text-transform:uppercase; color:var(--gold);
+}
+.form-input, .form-textarea {
+  background:var(--mist); border:1px solid rgba(248,245,238,0.1);
+  color:var(--ivory); padding:14px 18px;
+  font-family:'DM Sans',sans-serif; font-size:14px; font-weight:300;
+  outline:none; transition:border-color .2s; resize:none;
+  -webkit-appearance:none;
+}
+.form-input:focus, .form-textarea:focus {
+  border-color:rgba(201,168,76,0.5);
+}
+.form-input::placeholder, .form-textarea::placeholder {
+  color:rgba(248,245,238,0.25);
+}
+.form-textarea { height:140px; }
+.contact-details { display:flex; flex-direction:column; gap:36px; }
+.contact-item-label {
+  font-size:9px; font-weight:500; letter-spacing:3px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:10px;
+}
+.contact-item-value {
+  font-size:15px; font-weight:300; color:var(--ivory);
+}
+.contact-item-sub {
+  font-size:12px; font-weight:300; color:var(--text-dim);
+  margin-top:4px; line-height:1.6;
+}
+.entities {
+  display:flex; flex-direction:column; gap:12px; margin-top:48px;
+  padding-top:48px; border-top:1px solid rgba(248,245,238,0.07);
+}
+.entity-line {
+  font-size:11px; font-weight:300; color:var(--text-dim);
+  letter-spacing:.5px;
+}
+.entity-line strong { color:rgba(248,245,238,0.6); font-weight:400; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--forest);
+  padding:40px 60px;
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid rgba(201,168,76,0.1);
+}
+.footer-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px; font-weight:300; letter-spacing:4px;
+  color:var(--ivory);
+}
+.footer-logo span { color:var(--gold); }
+.footer-copy {
+  font-size:10px; font-weight:300; letter-spacing:1px;
+  color:var(--text-dim);
+}
+.footer-links { display:flex; gap:28px; }
+.footer-links a {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--text-dim); text-decoration:none; transition:color .2s;
+}
+.footer-links a:hover { color:var(--gold); }
+
+/* ── ANIMATIONS ── */
+.reveal {
+  opacity:0; transform:translateY(28px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* ── MOBILE ── */
+@media(max-width:900px) {
+  nav { padding:18px 24px; }
+  nav.scrolled { padding:14px 24px; }
+  .nav-links, .nav-cta { display:none; }
+  section { padding:80px 24px; }
+  #hero { padding:100px 24px 60px; }
+  .hero-stats { display:none; }
+  .about-grid, .services-intro, .africa-layout, .contact-grid { grid-template-columns:1fr; gap:40px; }
+  .about-visual { height:280px; }
+  .services-grid { grid-template-columns:1fr; }
+  .ecosystem-grid { grid-template-columns:1fr 1fr; }
+  .alliance-logos { gap:20px; }
+  .alliance-name { font-size:36px; }
+  .alliance-people { gap:28px; flex-wrap:wrap; justify-content:center; }
+  footer { flex-direction:column; gap:20px; text-align:center; }
+  .footer-links { flex-wrap:wrap; justify-content:center; }
+  .hero-actions { flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">GWEN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#ecosystem">Platform</a></li>
+    <li><a href="#africa">Africa</a></li>
+    <li><a href="#alliance">Alliance</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Global Wellness Education Network</div>
+    <h1 class="hero-title">
+      Where <em>African Wisdom</em><br>
+      Meets Global<br>
+      Wellness Strategy
+    </h1>
+    <p class="hero-body">
+      GWEN Consulting is a UK-headquartered consultancy delivering world-class wellness solutions at the intersection of human performance, recovery resilience, and geopolitical complexity — with Africa at our heart.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Our Services</a>
+      <a href="#contact" class="btn-ghost">Start a Conversation</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">$9.8T</div>
+      <div class="hero-stat-label">Global Wellness<br>Economy by 2029</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">42%</div>
+      <div class="hero-stat-label">Engagement Rate<br>vs 5% Industry Avg</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">40+</div>
+      <div class="hero-stat-label">Years of Trust<br>at Our Core</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-card about-card-main">
+        <p class="quote">"Two school friends. Four decades of trust. One mission — to bring world-class wellness to the communities that need it most."</p>
+        <p class="attr">The GWEN Origin Story · Est. 2019</p>
+      </div>
+      <div class="about-card about-card-float">
+        <div class="num">2019</div>
+        <div class="lbl">Founded · UK Registered<br>Co. No. 11983213</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-eyebrow reveal">Who We Are</div>
+      <h2 class="section-title reveal reveal-delay-1">Built on Decades of <em>Trust & Purpose</em></h2>
+      <p class="section-body reveal reveal-delay-2">
+        GWEN Consulting (Global Wellness Education Network Limited) is a UK-registered consultancy founded on a friendship forged in the 1980s and a shared belief that wellness is a universal right, not a luxury.
+      </p>
+      <p class="section-body reveal reveal-delay-2" style="margin-top:20px;">
+        We sit at the precise intersection that no other consultancy occupies — deep African cultural fluency, clinically-validated wellness methodology, and the corporate governance required for high-value international contracts.
+      </p>
+      <div class="tags reveal reveal-delay-3">
+        <span class="tag">UK Registered</span>
+        <span class="tag">Africa Network</span>
+        <span class="tag">AI-Powered</span>
+        <span class="tag">Clinically Validated</span>
+        <span class="tag">Ubuntu Methodology</span>
+        <span class="tag">ESG Aligned</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro">
+    <div>
+      <div class="section-eyebrow reveal">What We Deliver</div>
+      <h2 class="section-title reveal reveal-delay-1">Three Pillars of <em>Global Impact</em></h2>
+    </div>
+    <p class="section-body reveal reveal-delay-2">
+      From multinational ESG strategy to government wellness infrastructure, GWEN delivers solutions that are culturally fluent, evidence-based, and built for lasting impact across Africa and beyond.
+    </p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <h3 class="service-title">Corporate ESG & Workforce Wellness</h3>
+      <p class="service-body">Culturally-fluent wellness programmes for multinationals operating in African markets. ESG-aligned workforce health strategy, mental health policy, and employee resilience frameworks that satisfy international reporting standards.</p>
+      <div class="service-price">£5,000 — £50,000 per engagement</div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <h3 class="service-title">Government & Institutional Advisory</h3>
+      <p class="service-body">Wellness infrastructure design for African ministries, Commonwealth bodies, and development banks. Recovery system frameworks, national mental health policy consultation, and community resilience programmes at scale.</p>
+      <div class="service-price">£20,000 — £500,000 contracts</div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <h3 class="service-title">Coach Certification & Licensing</h3>
+      <p class="service-body">Licensed delivery of the MAUNi Recovery Wellness Programme across Africa. Certified Recovery Coach training, Systemic Wellness Practitioner programmes, and institutional certification partnerships.</p>
+      <div class="service-price">£500 — £2,000 per certified coach</div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem">
+  <div class="section-eyebrow reveal">Digital Platform</div>
+  <h2 class="section-title reveal reveal-delay-1">A World-Class <em>Technology Ecosystem</em></h2>
+  <p class="section-body reveal reveal-delay-2">
+    Powered by our strategic alliance with MAUNi Tech, GWEN clients access a fully integrated AI-powered wellness platform — from Harley Street clinical services to Ubuntu-based recovery coaching across Africa.
+  </p>
+  <div class="ecosystem-grid">
+    <a href="https://app.mauni-tech.com" target="_blank" class="eco-card reveal">
+      <div class="eco-status live">Live</div>
+      <div class="eco-name">KokoRoZaShi Platform</div>
+      <div class="eco-type">Core Recovery Platform</div>
+      <p class="eco-desc">Full-stack recovery coaching app — dashboard, goals, journal, AI assistant, Teachable courses. Google OAuth. 14 live courses.</p>
+    </a>
+    <a href="https://mauniharleyst.com" target="_blank" class="eco-card reveal reveal-delay-1">
+      <div class="eco-status live">Live</div>
+      <div class="eco-name">MAUNi Harley Street</div>
+      <div class="eco-type">Clinical · London</div>
+      <p class="eco-desc">Premium clinical recovery services. AI recovery coach, consultation booking, and referral pathways for clinicians.</p>
+    </a>
+    <a href="https://wedo.uact.co.uk" target="_blank" class="eco-card reveal reveal-delay-2">
+      <div class="eco-status live">Live</div>
+      <div class="eco-name">We Do Programme</div>
+      <div class="eco-type">UK Wellness Programme</div>
+      <p class="eco-desc">We Do Unfiltered Lives CIC. WRP programme site with referral form, welcome pack and onboarding sequence.</p>
+    </a>
+    <a href="https://uact.org.za" target="_blank" class="eco-card reveal reveal-delay-3">
+      <div class="eco-status live">Live</div>
+      <div class="eco-name">Ubuntu Academy</div>
+      <div class="eco-type">Africa · Training & Certification</div>
+      <p class="eco-desc">Ubuntu Academy Coaching Training CIC. African coaching certification, peer support and recovery infrastructure.</p>
+    </a>
+    <a href="https://mauni-ggz.nl" target="_blank" class="eco-card reveal reveal-delay-1">
+      <div class="eco-status active">Active</div>
+      <div class="eco-name">MAUNi GGZ</div>
+      <div class="eco-type">Netherlands · Licensed MH Services</div>
+      <p class="eco-desc">GGZ-licensed mental health services. AGB 94067115. Virtual treatment and MDT case management in the Netherlands.</p>
+    </a>
+    <a href="https://davidcollinscoaching.com" target="_blank" class="eco-card reveal reveal-delay-2">
+      <div class="eco-status live">Live</div>
+      <div class="eco-name">David Collins Coaching</div>
+      <div class="eco-type">Executive Coaching · Personal Brand</div>
+      <p class="eco-desc">Executive recovery and leadership coaching. Zoom consultation, platform access and personalised programme delivery.</p>
+    </a>
+  </div>
+</section>
+
+<!-- AFRICA -->
+<section id="africa">
+  <div class="section-eyebrow reveal">Africa Network</div>
+  <h2 class="section-title reveal reveal-delay-1">Our <em>Greatest Differentiator</em></h2>
+  <div class="africa-layout">
+    <div>
+      <p class="section-body reveal">
+        Most Western wellness consultancies lack authentic African cultural fluency. Most African providers lack the corporate governance required for high-value international contracts. GWEN sits at the precise intersection of both.
+      </p>
+      <div class="africa-points" style="margin-top:40px;">
+        <div class="africa-point reveal">
+          <div class="africa-dot"></div>
+          <div>
+            <div class="africa-point-title">Active Ground Operations</div>
+            <div class="africa-point-body">Hope Foundation and Elevated Initiatives partnerships providing active programme delivery across Sub-Saharan Africa.</div>
+          </div>
+        </div>
+        <div class="africa-point reveal reveal-delay-1">
+          <div class="africa-dot"></div>
+          <div>
+            <div class="africa-point-title">Ubuntu Methodology</div>
+            <div class="africa-point-body">MAUNi's Foundation Clinic (Johannesburg) deploys Ubuntu peer circles delivering 42% engagement — 8× the industry average of 5%.</div>
+          </div>
+        </div>
+        <div class="africa-point reveal reveal-delay-2">
+          <div class="africa-dot"></div>
+          <div>
+            <div class="africa-point-title">South Africa HQ</div>
+            <div class="africa-point-body">uact.org.za serves as our African headquarters, with Google Workspace infrastructure and active coaching networks across the continent.</div>
+          </div>
+        </div>
+        <div class="africa-point reveal reveal-delay-3">
+          <div class="africa-dot"></div>
+          <div>
+            <div class="africa-point-title">Geopolitical Intelligence</div>
+            <div class="africa-point-body">Relationships built over decades — not brokered in a boardroom. Our Africa network is a genuine strategic asset in today's complex environment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="africa-stats reveal reveal-delay-1">
+      <div class="africa-stat">
+        <div class="africa-stat-num">$10B</div>
+        <div class="africa-stat-label">Africa Behavioural Health Market by 2034</div>
+      </div>
+      <div class="africa-stat">
+        <div class="africa-stat-num">42%</div>
+        <div class="africa-stat-label">Engagement Rate — Ubuntu Programmes</div>
+      </div>
+      <div class="africa-stat">
+        <div class="africa-stat-num">6.75%</div>
+        <div class="africa-stat-label">Annual Growth — Africa Mental Health Sector</div>
+      </div>
+      <div class="africa-stat">
+        <div class="africa-stat-num">3+</div>
+        <div class="africa-stat-label">Active Countries — SA · Netherlands · UK</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALLIANCE -->
+<section id="alliance">
+  <div class="section-eyebrow reveal" style="justify-content:center;">Strategic Alliance</div>
+  <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">GWEN <em>×</em> MAUNi</h2>
+  <div class="alliance-logos reveal reveal-delay-2">
+    <div class="alliance-name">GWEN</div>
+    <div class="alliance-x">×</div>
+    <div class="alliance-name gold">MAUNi</div>
+  </div>
+  <p class="alliance-body reveal reveal-delay-2">
+    A strategic alliance between GWEN Consulting (UK) and MAUNi Tech — combining corporate governance, clinical wellness methodology, AI-powered platform technology, and a global coaching network. Two organisations. One mission.
+  </p>
+  <a href="#contact" class="btn-primary reveal reveal-delay-3">Partner With Us</a>
+  <div class="alliance-people reveal reveal-delay-3">
+    <div class="person-card">
+      <div class="person-initial">B</div>
+      <div class="person-name">Bruce Grater</div>
+      <div class="person-role">Director · GWEN Ltd</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initial">D</div>
+      <div class="person-name">David Collins</div>
+      <div class="person-role">Co-Founder · CSI/CSR Executive</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initial">P</div>
+      <div class="person-name">Paula Birger Perkusic</div>
+      <div class="person-role">CEO · MAUNi Ecosystem</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initial">L</div>
+      <div class="person-name">Leigh-Anne Brierley</div>
+      <div class="person-role">Co-Creator · Recovery Resilience Programme</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-eyebrow reveal">Let's Talk</div>
+  <h2 class="section-title reveal reveal-delay-1">Start a <em>Conversation</em></h2>
+  <div class="contact-grid">
+    <div class="contact-form reveal reveal-delay-1">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Organisation</label>
+        <input type="text" class="form-input" placeholder="Your organisation">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">How Can We Help?</label>
+        <textarea class="form-textarea" placeholder="Tell us about your organisation and what you're looking to achieve..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="handleSubmit()" style="width:100%;text-align:center;font-size:11px;">Send Message</button>
+    </div>
+    <div class="contact-details reveal reveal-delay-2">
+      <div>
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value">info@gwenconsulting.com</div>
+        <div class="contact-item-sub">We respond within 24 hours</div>
+      </div>
+      <div>
+        <div class="contact-item-label">Headquarters</div>
+        <div class="contact-item-value">United Kingdom</div>
+        <div class="contact-item-sub">Registered in England & Wales<br>Company No. 11983213</div>
+      </div>
+      <div>
+        <div class="contact-item-label">Africa Operations</div>
+        <div class="contact-item-value">South Africa · Netherlands</div>
+        <div class="contact-item-sub">uact.org.za · mauni-ggz.nl<br>Active across Sub-Saharan Africa</div>
+      </div>
+      <div>
+        <div class="contact-item-label">Clinical Platform</div>
+        <div class="contact-item-value">Harley Street, London</div>
+        <div class="contact-item-sub">mauniharleyst.com<br>Executive & clinical recovery services</div>
+      </div>
+      <div class="entities">
+        <div class="entity-line"><strong>GWEN Ltd</strong> · Co. 11983213 · Woking, Surrey</div>
+        <div class="entity-line"><strong>Ubuntu Academy CIC</strong> · Co. 15189272 · uact.org.za</div>
+        <div class="entity-line"><strong>MAUNi GGZ B.V.</strong> · AGB 94067115 · Netherlands</div>
+        <div class="entity-line"><strong>The Foundation Clinic</strong> · Johannesburg, South Africa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">GWEN<span>.</span></div>
+  <div class="footer-copy">© 2026 Global Wellness Education Network Ltd · All rights reserved</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#ecosystem">Platform</a>
+    <a href="#africa">Africa</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+
+// Contact form
+function handleSubmit() {
+  const name = document.querySelector('input[placeholder="Your name"]').value;
+  const email = document.querySelector('input[placeholder="your@email.com"]').value;
+  const msg = document.querySelector('textarea').value;
+  if (!name || !email || !msg) {
+    alert('Please fill in all fields.');
+    return;
+  }
+  window.location.href = `mailto:info@gwenconsulting.com?subject=Enquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(msg + '\n\nFrom: ' + name + '\nEmail: ' + email)}`;
+}
+</script>
+</body>
+</html>
